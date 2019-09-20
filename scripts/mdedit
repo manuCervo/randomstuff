@@ -1,0 +1,21 @@
+#!/bin/bash
+editor=$(cat editor)
+
+if [ ! -f "$1".md ]
+then
+	echo "$1" > "$1".md
+	pandoc -o "$1".pdf "$1".md
+fi
+
+
+while true
+do
+	inotifywait "$1".md > /dev/null 2>&1
+	pandoc -o "$1".pdf "$1".md > /dev/null 2>&1
+done &
+PID=$!
+zathura "$1".pdf &
+
+$editor "$1".md
+
+kill $PID

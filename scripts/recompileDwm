@@ -1,0 +1,12 @@
+#!/bin/bash
+notify-send -u low "config.h changed" "recompiling dwm..."
+output=$( sudo make clean install -C /home/manuel/dwm | grep "failed")
+
+#clear
+echo $output
+if [ -z "$output" ]
+then
+	notify-send "dwm recompiled" "build successful"
+else
+	notify-send -u critical "dwm recompiled" "build failed"
+fi

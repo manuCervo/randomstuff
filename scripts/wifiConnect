@@ -1,0 +1,16 @@
+#!/bin/bash
+network=$(nmcli -g SSID,SECURITY device wifi list | dmenu -l 30 -i)
+if [ "$network" == "" ]
+then
+	exit
+fi
+SSID=$(echo "$network" | cut -d : -f1)
+security=$(echo "$network" | cut -d : -f2)
+if [ "$security" != "--" ]
+then
+	password=$(echo "" | dmenu -p "$SSID - password")
+	nmcli device wifi connect "$SSID" password "$password"
+	exit
+fi
+
+nmcli device wifi connect "$SSID"
