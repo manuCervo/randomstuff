@@ -27,6 +27,8 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'Valloric/YouCompleteMe'
+Plugin '907th/vim-auto-save'
+Plugin 'svermeulen/vim-easyclip'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -46,3 +48,8 @@ set shell=bash
 let g:ycm_server_python_interpreter = "/usr/bin/python"
 set nu
 set mouse=a
+
+let g:auto_save_events = [ "TextChanged","InsertLeave","CursorHoldI"]
+let g:updatetime = 500
+set autoindent
+set clipboard=unnamed

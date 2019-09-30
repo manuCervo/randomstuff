@@ -26,18 +26,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 conky.config = {
+	color1 = '#00e3e0',
     alignment = 'top_middle',
     background = true,
     border_width = 1,
     border_inner_margin = 0,
     cpu_avg_samples = 2,
-	default_color = 'white',
+	default_color = '#00e3e0',
     default_outline_color = 'white',
-    default_shade_color = 'black',
+    default_shade_color = '#f156ff',
     draw_borders = false,
     draw_graph_borders = true,
     draw_outline = false,
-    draw_shades = false,
+    draw_shades = true,
     use_xft = true,
     font = 'DejaVu Sans Mono:size=11',
     gap_x = 0,
@@ -50,7 +51,7 @@ conky.config = {
     out_to_stderr = false,
     extra_newline = false,
     own_window = true,
-    own_window_class = 'Conky',
+    own_window_class = 'conky',
     own_window_type = 'override',
     own_window_argb_visual = true,
     own_window_transparent = true,
@@ -64,5 +65,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color grey}Uptime:$color $uptime | ${color grey}CPU: ${color}${freq_g}Ghz - ${color}$cpu% | ${color grey}RAM:$color $mem/$memmax - $memperc% | ${color grey}Swap: ${color}$swap/$swapmax - $swapperc% | ${color grey}hdd: $color${fs_used /}/${fs_size /}
+${color #f156ff}${shadecolor #00e3e0}Uptime:${color} ${shadecolor #f156ff}$uptime | ${color #f156ff}${shadecolor #00e3e0}CPU: ${color}${shadecolor #f156ff}${freq_g}Ghz - ${color}$cpu% | ${color #f156ff}${shadecolor #00e3e0}RAM:${color} ${shadecolor #f156ff}$mem/$memmax - $memperc% | ${color #f156ff}${shadecolor #00e3e0}Swap: ${color}${shadecolor #f156ff}$swap/$swapmax - $swapperc% | ${color #f156ff}${shadecolor #00e3e0}hdd: ${color}${shadecolor #f156ff}${fs_used /}/${fs_size /}
 ]]

@@ -1,6 +1,14 @@
 #!/bin/bash
 date=$(date "+%d/%m/%y %H:%M")
 battery=$(cat /sys/class/power_supply/BAT1/capacity)
+if [ $battery -lt $battery_warn_level ]
+then
+	if [ !$battery_warned ]
+	then
+		notify-send -u critical "low battery!"
+		export $battery_warned=true
+	fi
+fi
 batteryState=$(echo " - "$(cat /sys/class/power_supply/BAT1/status) | grep "Charging")
 network=$(nmcli -t -f active,ssid dev wifi | grep -m 1 'yes' | cut -d':' -f2)
 statusBar=$date" | 🔋 "$battery"%"$batteryState

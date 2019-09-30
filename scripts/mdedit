@@ -1,5 +1,4 @@
 #!/bin/bash
-editor=$(cat editor)
 
 if [ ! -f "$1".md ]
 then
@@ -16,6 +15,6 @@ done &
 PID=$!
 zathura "$1".pdf &
 
-$editor "$1".md
+$mdeditor "$1".md
 
 kill $PID

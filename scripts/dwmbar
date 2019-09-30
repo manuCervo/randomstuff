@@ -1,5 +1,34 @@
-#!/usr/bin/fish
+#!/bin/bash
+battery_warned=0
+battery_warn_level=10
+function getstatus()
+{
+	date=$(date "+%d/%m/%y %H:%M")
+	battery=$(cat /sys/class/power_supply/BAT1/capacity)
+	if [ $battery -lt $battery_warn_level ]
+	then
+		if [ $battery_warned -eq 0 ]
+		then
+			notify-send -u critical "low battery!"
+			battery_warned=1
+		fi
+	fi
+	batteryState=$(echo " - "$(cat /sys/class/power_supply/BAT1/status) | grep "Charging")
+	network=$(nmcli -t -f active,ssid dev wifi | grep -m 1 'yes' | cut -d':' -f2)
+	statusBar=$date" | 🔋 "$battery"%"$batteryState
+
+	if [ -n "$network" ]
+	then
+		statusBar=$statusBar" | 🖧 "$network
+	fi
+	echo " "$statusBar" "
+	return $battery_warned
+}
+
 while true
-	xsetroot -name (/home/manuel/getstatus)
+do
+	status=$(getstatus)
+	battery_warned=$?
+	xsetroot -name "$status"
 	sleep 1
-end
+done

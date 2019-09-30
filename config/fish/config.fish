@@ -1,7 +1,8 @@
 set fish_greeting
-set PATH /snap/bin/ $PATH
-
+import_bash_env
 function updatevim
     set -lx SHELL (which sh)
     vim +BundleInstall! +BundleClean +qall
 end
+
+thefuck --alias | source
