@@ -15,7 +15,13 @@ function getstatus()
 	fi
 	batteryState=$(echo " - "$(cat /sys/class/power_supply/BAT1/status) | grep "Charging")
 	network=$(nmcli -t -f active,ssid dev wifi | grep -m 1 'yes' | cut -d':' -f2)
-	statusBar=$date" | 🔋 "$battery"%"$batteryState
+	if [ $(getmuted) = "yes" ]
+	then
+		volume="mute"
+	else
+		volume=$(getvolume)
+	fi
+	statusBar=$date" | 🔋 "$battery"%"$batteryState" | 🔊 "$volume
 
 	if [ -n "$network" ]
 	then

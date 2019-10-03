@@ -29,3 +29,5 @@ fi
 
 export mdeditor="vim -c AutoSaveToggle"
 
+
+export PATH="$HOME/.cargo/bin:$PATH"

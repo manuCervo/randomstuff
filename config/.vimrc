@@ -29,6 +29,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin '907th/vim-auto-save'
 Plugin 'svermeulen/vim-easyclip'
+Plugin 'dense-analysis/ale'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

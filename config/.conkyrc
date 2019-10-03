@@ -65,5 +65,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #f156ff}${shadecolor #00e3e0}Uptime:${color} ${shadecolor #f156ff}$uptime | ${color #f156ff}${shadecolor #00e3e0}CPU: ${color}${shadecolor #f156ff}${freq_g}Ghz - ${color}$cpu% | ${color #f156ff}${shadecolor #00e3e0}RAM:${color} ${shadecolor #f156ff}$mem/$memmax - $memperc% | ${color #f156ff}${shadecolor #00e3e0}Swap: ${color}${shadecolor #f156ff}$swap/$swapmax - $swapperc% | ${color #f156ff}${shadecolor #00e3e0}hdd: ${color}${shadecolor #f156ff}${fs_used /}/${fs_size /}
+${color #f156ff}${shadecolor #00e3e0}Uptime:${color} ${shadecolor #f156ff}$uptime | ${color #f156ff}${shadecolor #00e3e0}CPU: ${color}${shadecolor #f156ff}${freq_g}Ghz - ${color}$cpu% | ${color #f156ff}${shadecolor #00e3e0}RAM:${color} ${shadecolor #f156ff}$mem/$memmax - $memperc% | ${color #f156ff}${shadecolor #00e3e0}temp: ${color}${shadecolor #f156ff}${hwmon temp 1}°C | ${color #f156ff}${shadecolor #00e3e0}Swap: ${color}${shadecolor #f156ff}$swap/$swapmax - $swapperc% | ${color #f156ff}${shadecolor #00e3e0}hdd: ${color}${shadecolor #f156ff}${fs_used /}/${fs_size /}
 ]]
