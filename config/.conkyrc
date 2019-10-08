@@ -41,7 +41,7 @@ conky.config = {
     draw_shades = true,
     use_xft = true,
     font = 'DejaVu Sans Mono:size=11',
-    gap_x = 700,
+    gap_x = 0,
     gap_y = 20,
     minimum_height = 5,
 	minimum_width = 5,

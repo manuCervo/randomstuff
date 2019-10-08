@@ -28,7 +28,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'Valloric/YouCompleteMe'
 Plugin '907th/vim-auto-save'
-Plugin 'svermeulen/vim-easyclip'
 Plugin 'dense-analysis/ale'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

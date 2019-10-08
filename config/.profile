@@ -28,6 +28,5 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export mdeditor="vim -c AutoSaveToggle"
-
-
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
