@@ -1,4 +1,4 @@
-/home/manuel/dwmbar &
+$HOME/dwmbar &
 dunst &
 sxhkd &
 export _JAVA_AWT_WM_NONREPARENTING=1
