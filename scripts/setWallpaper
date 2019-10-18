@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/manuel/wallpapers
+cd $HOME/wallpapers
 ln --force $( ls *.png *.jpg | dmenu -fn 10) selected
 feh --bg-scale selected
