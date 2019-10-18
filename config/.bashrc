@@ -173,7 +173,7 @@ esac
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
 #POWERLINE_BASH_SELECT=1
-#. /home/manuel/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+#. $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
 
 #eval $(thefuck --alias)
