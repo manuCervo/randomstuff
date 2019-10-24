@@ -4,3 +4,5 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 	sleep 0.1
+F12
+	gnome-screenshot -f $HOME"/screenshots/screenshot-"$(date "+%d-%m-%y-%H:%M:%S")".png"
