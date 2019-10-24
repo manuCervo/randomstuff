@@ -13,7 +13,7 @@ do
 	pandoc -o "$1".pdf "$1".md > /dev/null 2>&1
 done &
 PID=$!
-zathura "$1".pdf &
+zathura "$1".pdf > /dev/null 2>&1 &
 
 $mdeditor "$1".md
 
