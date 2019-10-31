@@ -29,11 +29,19 @@ function getstatus()
 	fi
 
 
+	volume=$(getvolume)
+	volumeIcon=
+
+	if ((volume == 0))
+	then
+		volume=""
+		volumeIcon=
+	fi
+
 	if [ $(getmuted) = "yes" ]
 	then
-		volume="mute"
-	else
-		volume=$(getvolume)
+		volume=""
+		volumeIcon=
 	fi
 
 	batteryIcon=
@@ -55,10 +63,10 @@ function getstatus()
 		batteryIcon=
 	elif ((battery >= 81 && battery <= 100))
 	then
-		batteryIcon=i
+		batteryIcon=
 	fi
 
-	statusBar="$date | $batteryIcon $battery% | 🔊 $volume | $networkIcon $network"
+	statusBar="$date | $batteryIcon $battery% | $volumeIcon $volume | $networkIcon $network"
 
 
 	echo " "$statusBar" "
