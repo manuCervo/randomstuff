@@ -66,10 +66,10 @@ function getstatus()
 		batteryIcon=
 	fi
 
-	statusBar="$date | $batteryIcon $battery% | $volumeIcon $volume | $networkIcon $network"
+	statusBar=" $date | $batteryIcon $battery% | $volumeIcon $volume | $networkIcon $network "
 
 
-	echo " "$statusBar" "
+	echo "$statusBar"
 	return $battery_warned
 
 }
