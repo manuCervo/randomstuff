@@ -26,8 +26,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 conky.config = {
+	double_buffer = true,
     alignment = 'top_left',
-    background = false,
+    background = true,
     border_width = 1,
     cpu_avg_samples = 2,
 	default_color = 'white',
@@ -39,8 +40,8 @@ conky.config = {
     draw_shades = false,
     use_xft = true,
     font = 'DejaVu Sans Mono:size=12',
-    gap_x = 5,
-    gap_y = 60,
+    gap_x = 25,
+    gap_y = 45,
     minimum_height = 5,
 	minimum_width = 5,
     net_avg_samples = 2,
@@ -50,30 +51,24 @@ conky.config = {
     extra_newline = false,
     own_window = true,
     own_window_class = 'Conky',
-    own_window_type = 'desktop',
+    own_window_type = 'override',
+	own_window_colour = 'D65700',
     stippled_borders = 0,
     update_interval = 1.0,
     uppercase = false,
     use_spacer = 'none',
     show_graph_scale = false,
-    show_graph_range = false
+    show_graph_range = false,
+	disable_auto_reload = false
 }
 
 conky.text = [[
-${scroll 16 $nodename - $sysname $kernel on $machine | }
-$hr
 ${color grey}Uptime:$color $uptime
-${color grey}Frequency (in MHz):$color $freq
-${color grey}Frequency (in GHz):$color $freq_g
-${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
-${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
-${color grey}CPU Usage:$color $cpu% ${cpubar 4}
-${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
-$hr
-${color grey}File systems:
- / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
-${color grey}Networking:
-Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}
+${color grey}RAM:$color $mem/$memmax - $memperc% ${membar 4}
+${color grey}Swap:$color $swap/$swapmax - $swapperc% ${swapbar 4}
+${color grey}CPU:$color ${freq_g}GHz - $cpu% ${cpubar 4}
+${color grey}Temp:$color ${hwmon temp 1}°C
+${color grey}HDD:$color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 $hr
 ${color grey}Name              PID   CPU%   MEM%
 ${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
