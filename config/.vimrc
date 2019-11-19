@@ -50,6 +50,6 @@ set nu
 set mouse=a
 
 let g:auto_save_events = [ "TextChanged","InsertLeave","CursorHoldI"]
-let g:updatetime = 500
+let g:updatetime = 100
 set autoindent
 set clipboard=unnamed
