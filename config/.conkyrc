@@ -39,7 +39,7 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     use_xft = true,
-    font = 'DejaVu Sans Mono:size=12',
+    font = 'DejaVu Sans Mono:size=12:bold',
     gap_x = 25,
     gap_y = 45,
     minimum_height = 5,
@@ -64,11 +64,11 @@ conky.config = {
 
 conky.text = [[
 ${color grey}Uptime:$color $uptime
-${color grey}RAM:$color $mem/$memmax - $memperc% ${membar 12}
-${color grey}Swap:$color $swap/$swapmax - $swapperc% ${swapbar 12}
-${color grey}CPU:$color ${freq_g}GHz - $cpu% ${cpubar 12}
-${color grey}Temp:$color ${hwmon temp 1}°C
-${color grey}HDD:$color${fs_used /}/${fs_size /} ${fs_bar 12 /}
+${color grey}TMP:$color ${hwmon temp 1}°C
+${color grey}SWP:$color $swap/$swapmax   $swapperc% ${swapbar 12}
+${color grey}RAM:$color $mem/$memmax  $memperc% ${membar 12}
+${color grey}HDD:$color ${fs_used /}/${fs_size /}  $fs_used_perc% ${fs_bar 12 /}
+${color grey}CPU:$color ${freq_g}GHz         $cpu% ${cpubar 12}
 $hr
 ${color grey}Name              PID   CPU%   MEM%
 ${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
