@@ -1,4 +1,4 @@
-compton --shadow --backend glx --blur-background --blur-method=kawase --blur-strength=5 &
+compton --shadow --backend glx --blur-background --blur-method=kawase --blur-strength=5 --clear-shadow &
 feh --bg-scale /home/manuel/wallpapers/selected
 $HOME/dwmbar &
 dunst &
