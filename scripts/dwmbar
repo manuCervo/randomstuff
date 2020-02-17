@@ -1,6 +1,8 @@
 #!/bin/bash
+
 battery_warned=0
 battery_warn_level=10
+
 function getstatus()
 {
 	date=$(date "+%d/%m/%y %H:%M")
@@ -13,24 +15,64 @@ function getstatus()
 			battery_warned=1
 		fi
 	fi
-	batteryState=$(echo " - "$(cat /sys/class/power_supply/BAT1/status) | grep "Charging")
-	network=$(nmcli -t -f active,ssid dev wifi | grep -m 1 'yes' | cut -d':' -f2)
-	if [ $(getmuted) = "yes" ]
-	then
-		volume="mute"
-	else
-		volume=$(getvolume)
-	fi
-	statusBar=$date" | 🔋 "$battery"%"$batteryState" | 🔊 "$volume
 
+	batteryState=$(cat /sys/class/power_supply/BAT1/status)
+
+	network=$(nmcli -t -f active,ssid dev wifi | grep -m 1 'yes' | cut -d':' -f2)
+
+	networkIcon=
 	if [ -n "$network" ]
 	then
-		statusBar=$statusBar" | 🖧 "$network
+		networkIcon=
+	else
+		networkIcon=
 	fi
-	echo " "$statusBar" "
-	return $battery_warned
-}
 
+
+	volume=$(getvolume)
+	volumeIcon=
+
+	if ((volume == 0))
+	then
+		volume=""
+		volumeIcon=
+	fi
+
+	if [ $(getmuted) = "yes" ]
+	then
+		volume=""
+		volumeIcon=
+	fi
+
+	batteryIcon=
+
+	if [ "$batteryState" == "Charging" ]
+	then
+		batteryIcon=
+	elif ((battery <= 15))
+	then
+		batteryIcon=
+	elif ((battery >= 16 && battery <= 30))
+	then
+		batteryIcon=
+	elif ((battery >= 31 && battery <= 59))
+	then
+		batteryIcon=
+	elif ((battery >= 60 && battery <= 80))
+	then
+		batteryIcon=
+	elif ((battery >= 81 && battery <= 100))
+	then
+		batteryIcon=
+	fi
+
+	statusBar=" $date | $batteryIcon $battery% | $volumeIcon $volume | $networkIcon $network "
+
+
+	echo "$statusBar"
+	return $battery_warned
+
+}
 while true
 do
 	status=$(getstatus)
