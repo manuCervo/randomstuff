@@ -6,3 +6,5 @@ function updatevim
 end
 
 thefuck --alias | source
+
+alias ide="vim -S $HOME/.ide.vim"

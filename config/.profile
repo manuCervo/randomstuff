@@ -32,3 +32,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/games:$PATH"
 export SXHKD_SHELL="/bin/bash"
+
+alias ide="vim -S $HOME/.ide.vim"
